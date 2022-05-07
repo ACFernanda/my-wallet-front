@@ -17,11 +17,11 @@ export default function App() {
       <BrowserRouter>
         <GlobalStyle />
         <Routes>
-          <Route path="/" element={<LoginPage />}></Route>
+          <Route path="/" element={<LoginPage setUser={setUser} />}></Route>
           <Route path="/cadastro" element={<SignUpPage />}></Route>
           <Route path="/menu" element={<Homepage />}></Route>
-          <Route path="/NewInput" element={<NewInput />}></Route>
-          <Route path="/NewOutput" element={<NewOutput />}></Route>
+          <Route path="/newInput" element={<NewInput />}></Route>
+          <Route path="/newOutput" element={<NewOutput />}></Route>
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>

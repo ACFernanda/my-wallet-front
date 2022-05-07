@@ -13,7 +13,7 @@ export default function SignUpPage() {
 
   function register(event) {
     event.preventDefault();
-    const promise = axios.post("https://localhost:5000/sign-up/", {
+    const promise = axios.post("https://localhost:5000/sign-up", {
       name: name,
       email: email,
       password: password,

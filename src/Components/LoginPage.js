@@ -10,7 +10,7 @@ export default function LoginPage({ setUser }) {
 
   function login(event) {
     event.preventDefault();
-    const promise = axios.post("https://localhost:5000/sign-in/", {
+    const promise = axios.post("http://localhost:5000/sign-in", {
       email: email,
       password: password,
     });
