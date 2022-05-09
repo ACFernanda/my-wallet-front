@@ -67,6 +67,7 @@ const Container = styled.div`
     font-family: "Saira Stencil One", cursive;
     font-size: 32px;
     color: white;
+    margin-bottom: 24px;
   }
   form {
     display: flex;

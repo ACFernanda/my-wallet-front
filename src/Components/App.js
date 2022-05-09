@@ -19,7 +19,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<LoginPage setUser={setUser} />}></Route>
           <Route path="/cadastro" element={<SignUpPage />}></Route>
-          <Route path="/menu" element={<Homepage />}></Route>
+          <Route path="/menu" element={<Homepage setUser={setUser} />}></Route>
           <Route path="/newInput" element={<NewInput />}></Route>
           <Route path="/newOutput" element={<NewOutput />}></Route>
         </Routes>

@@ -6,7 +6,7 @@ import UserContext from "./../Contexts/UserContext.js";
 
 import styled from "styled-components";
 
-export default function Homepage() {
+export default function Homepage({ setUser }) {
   const { token, username } = useContext(UserContext);
   const [transactions, setTransactions] = useState([]);
   const navigate = useNavigate();
@@ -42,9 +42,17 @@ export default function Homepage() {
     return total;
   }
 
+  function logout(setUser) {
+    setUser(null);
+    navigate("/");
+  }
+
   return (
     <Container>
       <header>Olá, {username}</header>
+      <button onClick={() => logout(setUser)}>
+        <ion-icon name="log-out-outline"></ion-icon>
+      </button>
       <TransactionsContainer>
         {transactions.length > 0 ? (
           transactions.map(({ value, description, type, day }) => {
@@ -91,10 +99,19 @@ const Container = styled.div`
   height: 100vh;
   padding-top: 25px;
   header {
+    width: 85%;
     font-size: 26px;
     font-weight: 700;
     color: white;
     margin-bottom: 22px;
+    position: relative;
+  }
+  ion-icon {
+    position: absolute;
+    right: 20px;
+    top: 23px;
+    font-size: 30px;
+    color: white;
   }
 `;
 
