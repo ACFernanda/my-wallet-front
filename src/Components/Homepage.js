@@ -63,7 +63,7 @@ export default function Homepage({ setUser }) {
                 <transaction className={type}>
                   <day>{day}</day>
                   <description>{description}</description>
-                  <value>{value}</value>
+                  <value>{value.toString().replace(".", ",")}</value>
                 </transaction>
               </>
             );
@@ -76,7 +76,9 @@ export default function Homepage({ setUser }) {
         {transactions.length > 0 ? (
           <>
             <span>SALDO</span>
-            <p className={balance >= 0 ? "green" : "red"}>{balance}</p>
+            <p className={balance >= 0 ? "green" : "red"}>
+              {balance.toString().replace(".", ",")}
+            </p>
           </>
         ) : (
           <></>
