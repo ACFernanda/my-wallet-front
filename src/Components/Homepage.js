@@ -63,7 +63,7 @@ export default function Homepage() {
         )}
         <span>SALDO</span>
         <p className="total" color={total}>
-          {calculateTotal()}
+          {calculateTotal(transactions)}
         </p>
       </TransactionsContainer>
 
