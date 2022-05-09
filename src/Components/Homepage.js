@@ -41,6 +41,7 @@ export default function Homepage({ setUser }) {
     }
     return total;
   }
+  let balance = calculateTotal(transactions);
 
   function logout(setUser) {
     setUser(null);
@@ -68,14 +69,14 @@ export default function Homepage({ setUser }) {
             );
           })
         ) : (
-          <p className="noTransactions">Não há registros de entrada ou saída</p>
+          <p className="noTransactions">
+            Não há registros de <br></br> entrada ou saída
+          </p>
         )}
         {transactions.length > 0 ? (
           <>
             <span>SALDO</span>
-            <p className="total" color={total}>
-              {calculateTotal(transactions)}
-            </p>
+            <p className={balance >= 0 ? "green" : "red"}>{balance}</p>
           </>
         ) : (
           <></>
@@ -160,24 +161,26 @@ const TransactionsContainer = styled.div`
     font-weight: 700;
     font-size: 18px;
   }
-  .total {
+  p {
     position: absolute;
     bottom: 12px;
     right: 10px;
     font-weight: 400;
     font-size: 18px;
-    color: ${(props) => (props.color >= 0 ? "#03AC00" : "#C70000")};
   }
-  .noTransactions {
+  p.green {
+    color: #03ac00;
+  }
+  p.red {
+    color: #c70000;
+  }
+  p.noTransactions {
     color: #868686;
     font-size: 20px;
     text-align: center;
-    width: 60%;
-    position: absolute;
-    margin: auto;
-    left: 0;
-    right: 0;
-    margin-top: 55%;
+    top: 40%;
+    right: 50px;
+    left: 50px;
   }
 `;
 
