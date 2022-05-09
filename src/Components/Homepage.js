@@ -50,9 +50,10 @@ export default function Homepage({ setUser }) {
   return (
     <Container>
       <header>Olá, {username}</header>
-      <button onClick={() => logout(setUser)}>
-        <ion-icon name="log-out-outline"></ion-icon>
-      </button>
+      <ion-icon
+        onClick={() => logout(setUser)}
+        name="log-out-outline"
+      ></ion-icon>
       <TransactionsContainer>
         {transactions.length > 0 ? (
           transactions.map(({ value, description, type, day }) => {
@@ -67,12 +68,18 @@ export default function Homepage({ setUser }) {
             );
           })
         ) : (
-          <p>Não há registros de entrada ou saída</p>
+          <p className="noTransactions">Não há registros de entrada ou saída</p>
         )}
-        <span>SALDO</span>
-        <p className="total" color={total}>
-          {calculateTotal(transactions)}
-        </p>
+        {transactions.length > 0 ? (
+          <>
+            <span>SALDO</span>
+            <p className="total" color={total}>
+              {calculateTotal(transactions)}
+            </p>
+          </>
+        ) : (
+          <></>
+        )}
       </TransactionsContainer>
 
       <AddTransactionContainer>
@@ -160,6 +167,17 @@ const TransactionsContainer = styled.div`
     font-weight: 400;
     font-size: 18px;
     color: ${(props) => (props.color >= 0 ? "#03AC00" : "#C70000")};
+  }
+  .noTransactions {
+    color: #868686;
+    font-size: 20px;
+    text-align: center;
+    width: 60%;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    margin-top: 55%;
   }
 `;
 

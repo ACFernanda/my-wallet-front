@@ -6,7 +6,7 @@ import axios from "axios";
 import UserContext from "./../Contexts/UserContext.js";
 
 export default function NewOutput() {
-  const user = useContext(UserContext);
+  const { token } = useContext(UserContext);
   const [value, setValue] = useState("");
   const [description, setDescription] = useState("");
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ export default function NewOutput() {
     event.preventDefault();
     const config = {
       headers: {
-        Authorization: `Bearer ${user}`,
+        Authorization: `Bearer ${token}`,
       },
     };
 
@@ -47,6 +47,9 @@ export default function NewOutput() {
         <input
           required
           type="number"
+          min="0.01"
+          max="99999999.00"
+          step="0.01"
           placeholder="Valor"
           value={value}
           onChange={(e) => setValue(e.target.value)}

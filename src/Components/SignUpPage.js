@@ -13,11 +13,11 @@ export default function SignUpPage() {
 
   function register(event) {
     event.preventDefault();
-    const promise = axios.post("https://localhost:5000/sign-up", {
-      name: name,
-      email: email,
-      password: password,
-      confirmPassword: confirmPassword,
+    const promise = axios.post("http://localhost:5000/sign-up", {
+      name,
+      email,
+      password,
+      confirmPassword,
     });
 
     promise.then((response) => {
@@ -64,7 +64,7 @@ export default function SignUpPage() {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
-        <button type="submit">Entrar</button>
+        <button type="submit">Cadastrar</button>
       </form>
 
       <Link to="/">
