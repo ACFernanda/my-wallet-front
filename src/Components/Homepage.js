@@ -7,14 +7,14 @@ import UserContext from "./../Contexts/UserContext.js";
 import styled from "styled-components";
 
 export default function Homepage() {
-  const user = useContext(UserContext);
+  const { token, username } = useContext(UserContext);
   const [transactions, setTransactions] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     const config = {
       headers: {
-        Authorization: `Bearer ${user}`,
+        Authorization: `Bearer ${token}`,
       },
     };
 
@@ -44,7 +44,7 @@ export default function Homepage() {
 
   return (
     <Container>
-      <header>Olá, COLOCAR O NOME</header>
+      <header>Olá, {username}</header>
       <TransactionsContainer>
         {transactions.length > 0 ? (
           transactions.map(({ value, description, type, day }) => {

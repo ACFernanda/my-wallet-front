@@ -69,21 +69,22 @@ const Container = styled.div`
   background-color: #8c11be;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 100vh;
   header {
-    font-family: "Saira Stencil One", cursive;
+    font-weight: 700;
     font-size: 32px;
     color: white;
+    width: 85%;
+    padding: 30px;
   }
   form {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
   input {
-    width: 100%;
+    width: 80%;
     height: 45px;
     background: #ffffff;
     border: 1px solid #d5d5d5;
@@ -101,7 +102,7 @@ const Container = styled.div`
     background-color: #f2f2f2;
   }
   button {
-    width: 100%;
+    width: 80%;
     height: 45px;
     background: #a328d6;
     border: none;
