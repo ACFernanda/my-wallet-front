@@ -10,10 +10,13 @@ export default function LoginPage({ setUser }) {
 
   function login(event) {
     event.preventDefault();
-    const promise = axios.post("http://localhost:5000/sign-in", {
-      email: email,
-      password: password,
-    });
+    const promise = axios.post(
+      "https://driven-mywallet-back.herokuapp.com/sign-in",
+      {
+        email: email,
+        password: password,
+      }
+    );
 
     promise.then((response) => {
       setUser(response.data);

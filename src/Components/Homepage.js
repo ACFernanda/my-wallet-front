@@ -18,7 +18,10 @@ export default function Homepage({ setUser }) {
       },
     };
 
-    const promise = axios.get(`http://localhost:5000/transactions`, config);
+    const promise = axios.get(
+      `https://driven-mywallet-back.herokuapp.com/transactions`,
+      config
+    );
 
     promise.then((response) => {
       console.log(response.data);

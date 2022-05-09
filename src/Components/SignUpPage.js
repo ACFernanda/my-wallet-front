@@ -13,12 +13,15 @@ export default function SignUpPage() {
 
   function register(event) {
     event.preventDefault();
-    const promise = axios.post("http://localhost:5000/sign-up", {
-      name,
-      email,
-      password,
-      confirmPassword,
-    });
+    const promise = axios.post(
+      "https://driven-mywallet-back.herokuapp.com/sign-up",
+      {
+        name,
+        email,
+        password,
+        confirmPassword,
+      }
+    );
 
     promise.then((response) => {
       const { data } = response;
