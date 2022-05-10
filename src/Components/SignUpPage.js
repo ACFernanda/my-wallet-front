@@ -14,7 +14,7 @@ export default function SignUpPage() {
   function register(event) {
     event.preventDefault();
     const promise = axios.post(
-      "https://driven-mywallet-back.herokuapp.com/sign-up",
+      `${process.env.REACT_APP_API_BASE_URL}/sign-up`,
       {
         name,
         email,

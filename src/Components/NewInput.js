@@ -20,7 +20,7 @@ export default function NewInput() {
     };
 
     const promise = axios.post(
-      `https://driven-mywallet-back.herokuapp.com/transactions`,
+      `${process.env.REACT_APP_API_BASE_URL}/transactions`,
       {
         value: Number(value),
         description,

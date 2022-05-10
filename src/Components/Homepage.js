@@ -19,7 +19,7 @@ export default function Homepage({ setUser }) {
     };
 
     const promise = axios.get(
-      `https://driven-mywallet-back.herokuapp.com/transactions`,
+      `${process.env.REACT_APP_API_BASE_URL}/transactions`,
       config
     );
 

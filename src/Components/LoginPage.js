@@ -11,7 +11,7 @@ export default function LoginPage({ setUser }) {
   function login(event) {
     event.preventDefault();
     const promise = axios.post(
-      "https://driven-mywallet-back.herokuapp.com/sign-in",
+      `${process.env.REACT_APP_API_BASE_URL}/sign-in`,
       {
         email: email,
         password: password,
